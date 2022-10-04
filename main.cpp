@@ -34,7 +34,29 @@ void merge_sort(int arr[], int left, int right){
     merge_sort(arr,mid, right);
     merge(arr,left, right);
 }
+
+int partition(int arr[], int left, int right) {
+    int x = arr[right];
+    int i = left - 1;
+    for (int j = left; j < right; j++) {
+        if (arr[j] <= x) {
+            i += 1;
+            std::swap(arr[i], arr[j]);
+        }
+    }
+    std::swap(arr[i + 1], arr[right]);
+    return i + 1;
+}
+
+void Quick_sort(int arr[], int left, int right) {
+    if (left < right) {
+        int q = partition(arr, left, right);
+        Quick_sort(arr, left, q - 1);
+        Quick_sort(arr, q + 1, right);
+    }
+}
+
 int main(){
-   
+
     return 0;
 }
