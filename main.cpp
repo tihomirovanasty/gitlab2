@@ -1,5 +1,5 @@
 #include <iostream>
-void merge(int arr[], int left, int right) {
+void Merge(int arr[], int left, int right) {
     int it1 = 0;
     int it2 = 0;
     int mid = (right + left) / 2;
@@ -25,17 +25,18 @@ void merge(int arr[], int left, int right) {
         arr[left + i] = result[i];
     }
 }
-void merge_sort(int arr[], int left, int right){
+
+void MergeSort(int arr[], int left, int right){
     if(left+1>=right){
         return;
     }
     int mid=(left+right)/2;
-    merge_sort(arr,left, mid);
-    merge_sort(arr,mid, right);
-    merge(arr,left, right);
+    MergeSort(arr,left, mid);
+    MergeSort(arr,mid, right);
+    Merge(arr,left, right);
 }
 
-int partition(int arr[], int left, int right) {
+int Partition(int arr[], int left, int right) {
     int x = arr[right];
     int i = left - 1;
     for (int j = left; j < right; j++) {
@@ -48,11 +49,11 @@ int partition(int arr[], int left, int right) {
     return i + 1;
 }
 
-void Quick_sort(int arr[], int left, int right) {
+void QuickSort(int arr[], int left, int right) {
     if (left < right) {
-        int q = partition(arr, left, right);
-        Quick_sort(arr, left, q - 1);
-        Quick_sort(arr, q + 1, right);
+        int q = Partition(arr, left, right);
+        QuickSort(arr, left, q - 1);
+        QuickSort(arr, q + 1, right);
     }
 }
 
