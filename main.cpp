@@ -57,6 +57,28 @@ void QuickSort(int arr[], int left, int right) {
     }
 }
 
+void InsertionSort(int arr[], int size) {
+    for(int k = 0; k < size; k++){
+        int num;
+        std::cin >> num;
+        arr[k] = num;
+    }
+
+    for(int i = 1; i < size; i++){
+        int key = arr[i];
+        int index = i;
+        while(key < arr[index - 1] && index > 0){
+            arr[index] = arr[index - 1];
+            index--;
+        }
+        arr[index] = key;
+    }
+
+    for(int i = 0; i < size; i++){
+        std::cout << arr[i] << " ";
+    }
+}
+
 int main(){
 
     return 0;
